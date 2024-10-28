@@ -291,7 +291,7 @@ export default function FUIBentoGridDark() {
       <h1 className="font-geistMono tracking-tight text-3xl md:text-5xl text-white">
         Sales
       </h1>
-      <p className="max-w-3xl text-2xl/8 font-medium tracking-tight mt-2 bg-gradient-to-br bg-clip-text text-transparent to-white/40">
+      <p className="max-w-3xl text-2xl/8 font-medium tracking-tight mt-2 bg-gradient-to-br bg-clip-text text-white to-white/40">
         Know more about your customers than they do.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
@@ -370,7 +370,7 @@ export function BentoCard({
       className={clsx(
         className,
         "group relative flex flex-col overflow-hidden rounded-lg",
-        "bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset]   shadow-sm ring-1 ring-black/5",
+        "bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] shadow-sm ring-1 ring-black/5",
         "bg-gray-800 ring-white/15"
       )}
     >

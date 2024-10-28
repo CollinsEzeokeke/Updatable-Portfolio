@@ -10,7 +10,7 @@ interface WorldGlobeProps {
   height?: number;
 }
 
-const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
+const WorldGlobe = ({ width = 200, height = 200 }: WorldGlobeProps) => {
   const globeRef = useRef<GlobeMethods>(null);
   const [isGlobeReady, setIsGlobeReady] = useState<boolean>(false);
   const hasInitialized = useRef<boolean>(false);
@@ -19,7 +19,7 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
     if (!globeRef.current || hasInitialized.current) return;
 
     hasInitialized.current = true;
-    
+
     // Configure initial position
     globeRef.current.pointOfView({
       lat: 39.6,
@@ -47,34 +47,6 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
     if (isGlobeReady) {
       configureGlobe();
     }
-
-    // Store the current ref value
-    const currentGlobe = globeRef.current;
-
-    // Prevent default touch and mouse events
-    const preventDefault = (e: Event) => {
-      e.preventDefault();
-    };
-
-    const container = document.querySelector('.globe-container');
-    if (container) {
-      container.addEventListener('mousedown', preventDefault);
-      container.addEventListener('touchstart', preventDefault);
-    }
-
-    return () => {
-      if (currentGlobe) {
-        const controls = currentGlobe.controls();
-        if (controls) {
-          controls.autoRotate = false;
-        }
-      }
-      if (container) {
-        container.removeEventListener('mousedown', preventDefault);
-        container.removeEventListener('touchstart', preventDefault);
-      }
-      hasInitialized.current = false;
-    };
   }, [isGlobeReady, configureGlobe]);
 
   const handleGlobeReady = useCallback(() => {
@@ -87,7 +59,7 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
   ];
 
   return (
-    <div className="globe-container" style={{ pointerEvents: 'none' }}>
+    <div className="flex items-end absolute top-56" style={{ pointerEvents: 'none' }}>
       <Globe
         ref={globeRef}
         width={width}

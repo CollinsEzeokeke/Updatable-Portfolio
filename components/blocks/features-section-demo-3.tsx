@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Link from "next/link";
+import { BackgroundBeams } from "../ui/background-beams";
 
 export default function FeaturesSectionDemo() {
   const features = [
@@ -65,6 +66,7 @@ export default function FeaturesSectionDemo() {
           ))}
         </div>
       </div>
+        <BackgroundBeams />
     </div>
   );
 }

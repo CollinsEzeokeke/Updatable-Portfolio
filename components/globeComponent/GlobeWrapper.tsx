@@ -7,7 +7,7 @@ import type { GlobeMethods } from 'react-globe.gl';
 
 const GlobeTmpl = dynamic(() => import("react-globe.gl"), { 
   ssr: false,
-  loading: () => <div>Loading Globe...</div>
+  loading: () => (<></>)
 });
 
 interface GlobeProps {
