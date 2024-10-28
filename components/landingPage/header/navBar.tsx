@@ -27,7 +27,7 @@ export default function Navbar() {
     <motion.nav
       className="fixed w-full z-50 transition-colors duration-300 text-white"
       style={{
-        backgroundColor: `rgba(255, 255, 255, ${Math.min(scrollY / 300, 0.8)})`,
+        backgroundColor: `rgba(61, 61, 61, ${Math.min(scrollY / 300, 0.8)})`,
         boxShadow: scrollY > 0 ? '0 2px 4px rgba(0,0,0,0.1)' : 'none',
       }}
       initial={{ opacity: 0 }}
