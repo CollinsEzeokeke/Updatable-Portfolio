@@ -9,15 +9,20 @@ export const eventType = defineType({
       name: 'header',
       type: 'string',
     }),
-  ],
-})
-export const typeForm = defineType({
-  name: 'navigation',
-  title: 'Heading element',
-  type: 'document',
-  fields: [
     defineField({
-      name: 'header',
+      name: 'bottom',
+      type: 'string',
+    }),
+    defineField({
+      name: 'bottomOne',
+      type: 'string',
+    }),
+    defineField({
+      name: 'bottomTwo',
+      type: 'string',
+    }),
+    defineField({
+      name: 'bottomThree',
       type: 'string',
     }),
   ],
