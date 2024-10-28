@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Globe from "./GlobeWrapper";
-import type { GlobeMethods } from 'react-globe.gl';
+import type { GlobeMethods } from "react-globe.gl";
 
 interface WorldGlobeProps {
   width?: number;
@@ -19,13 +19,16 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
     if (!globeRef.current || hasInitialized.current) return;
 
     hasInitialized.current = true;
-    
+
     // Configure initial position
-    globeRef.current.pointOfView({
-      lat: 39.6,
-      lng: -98.5,
-      altitude: 2
-    }, 1000);
+    globeRef.current.pointOfView(
+      {
+        lat: 39.6,
+        lng: -98.5,
+        altitude: 2,
+      },
+      1000
+    );
 
     // Configure controls
     const controls = globeRef.current.controls();
@@ -37,23 +40,23 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
   }, []);
 
   useEffect(() => {
-    if (isGlobeReady) {
+    // Only configure if globe is ready
+    if (isGlobeReady && globeRef.current && !hasInitialized.current) {
       configureGlobe();
     }
 
-    // Store the current ref value
-    const currentGlobe = globeRef.current;
-
+    // Cleanup function
     return () => {
-      if (currentGlobe) {
-        const controls = currentGlobe.controls();
+      if (globeRef.current) {
+        const controls = globeRef.current.controls();
         if (controls) {
           controls.autoRotate = false;
         }
       }
+      // Reset initialization flag on cleanup
       hasInitialized.current = false;
     };
-  }, [isGlobeReady, configureGlobe]);
+  }, [isGlobeReady]);
 
   const handleGlobeReady = useCallback(() => {
     setIsGlobeReady(true);
@@ -61,7 +64,7 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
 
   const pointsData = [
     { lat: 51.5074, lng: -0.1278, name: "London" },
-    { lat: 40.7128, lng: -74.0060, name: "New York" }
+    { lat: 40.7128, lng: -74.006, name: "New York" },
   ];
 
   return (

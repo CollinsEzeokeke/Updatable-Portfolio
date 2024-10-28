@@ -10,7 +10,7 @@ interface ShimmerEffectProps {
   className?: string;
 }
 
-const ShimmerEffect: React.FC<ShimmerEffectProps> = ({
+const Loading: React.FC<ShimmerEffectProps> = ({
   width = "100%",
   height = "1rem",
   borderRadius = "0.25rem",
@@ -53,4 +53,4 @@ const ShimmerEffect: React.FC<ShimmerEffectProps> = ({
   );
 };
 
-export default ShimmerEffect;
+export default Loading;

@@ -42,10 +42,10 @@ interface ParticlesProps {
   children?: React.ReactNode;
 }
 
-function hexToRgb(hex: string): number[] {
-  // Always return white RGB values for consistent white particles
-  return [255, 255, 255];
-}
+// function hexToRgb(hex: string): number[] {
+//   // Always return white RGB values for consistent white particles
+//   return [255, 255, 255];
+// }
 
 const Particles: React.FC<ParticlesProps> = ({
   className = "",
@@ -59,6 +59,7 @@ const Particles: React.FC<ParticlesProps> = ({
   vy = 0,
   children,
 }) => {
+  const [isClient, setIsClient] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
@@ -66,12 +67,42 @@ const Particles: React.FC<ParticlesProps> = ({
   const mousePosition = MousePosition();
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
-  const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+  const dpr = isClient ? window.devicePixelRatio : 1;
+
+  // useEffect(() => {
+  //   if (canvasRef.current) {
+  //     context.current = canvasRef.current.getContext("2d", {
+  //       alpha: true // Enable alpha channel
+  //     });
+  //   }
+  //   initCanvas();
+  //   animate();
+  //   window.addEventListener("resize", initCanvas);
+
+  //   return () => {
+  //     window.removeEventListener("resize", initCanvas);
+  //   };
+  // }, [color]);
+
+  // useEffect(() => {
+  //   onMouseMove();
+  // }, [mousePosition.x, mousePosition.y]);
+
+  // useEffect(() => {
+  //   initCanvas();
+  // }, [refresh]);
+
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext("2d", {
-        alpha: true // Enable alpha channel
+        alpha: true
       });
     }
     initCanvas();
@@ -81,15 +112,17 @@ const Particles: React.FC<ParticlesProps> = ({
     return () => {
       window.removeEventListener("resize", initCanvas);
     };
-  }, [color]);
+  }, [color, isClient]);
 
   useEffect(() => {
+    if (!isClient) return;
     onMouseMove();
-  }, [mousePosition.x, mousePosition.y]);
+  }, [mousePosition.x, mousePosition.y, isClient]);
 
   useEffect(() => {
+    if (!isClient) return;
     initCanvas();
-  }, [refresh]);
+  }, [refresh, isClient]);
 
   const initCanvas = () => {
     resizeCanvas();
@@ -160,8 +193,7 @@ const Particles: React.FC<ParticlesProps> = ({
       magnetism,
     };
   };
-
-  const rgb = hexToRgb(color);
+  // const rgb = hexToRgb(color);
 
   const drawCircle = (circle: Circle, update = false) => {
     if (context.current) {

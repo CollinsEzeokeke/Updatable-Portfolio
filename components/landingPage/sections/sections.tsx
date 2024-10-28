@@ -120,8 +120,8 @@
 //         </div>
 //       </div>
 
-//       <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
-//       <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
+//       <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
+//       <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b dark:from-black via-transparent to-transparent w-full pointer-events-none" />
 //     </div>
 //   );
 // };
@@ -219,8 +219,8 @@
 //         ))}
 //       </div>
 
-//       <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent  h-full pointer-events-none" />
-//       <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black  to-transparent h-full pointer-events-none" />
+//       <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r dark:from-black to-transparent  h-full pointer-events-none" />
+//       <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l dark:from-black  to-transparent h-full pointer-events-none" />
 //     </div>
 //   );
 // };
@@ -281,8 +281,6 @@
 //   );
 // };
 
-
-
 "use client";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
@@ -290,10 +288,10 @@ import { motion } from "framer-motion";
 export default function FUIBentoGridDark() {
   return (
     <div className="pt-32 container mx-auto">
-      <h1 className="font-geistMono tracking-tight text-3xl md:text-5xl">
+      <h1 className="font-geistMono tracking-tight text-3xl md:text-5xl text-white">
         Sales
       </h1>
-      <p className="max-w-3xl text-2xl/8 font-medium tracking-tight mt-2 bg-gradient-to-br from-black/90 to-black/80 bg-clip-text text-transparent dark:from-white dark:to-white/40">
+      <p className="max-w-3xl text-2xl/8 font-medium tracking-tight mt-2 bg-gradient-to-br bg-clip-text text-transparent to-white/40">
         Know more about your customers than they do.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
@@ -372,25 +370,25 @@ export function BentoCard({
       className={clsx(
         className,
         "group relative flex flex-col overflow-hidden rounded-lg",
-        "bg-transparent transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]   shadow-sm ring-1 ring-black/5",
-        "data-[dark]:bg-gray-800 data-[dark]:ring-white/15"
+        "bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset]   shadow-sm ring-1 ring-black/5",
+        "bg-gray-800 ring-white/15"
       )}
     >
       <div className="relative h-[29rem] shrink-0">
         {graphic}
         {fade.includes("top") && (
-          <div className="absolute inset-0 bg-gradient-to-b from-white to-50% group-data-[dark]:from-gray-800 group-data-[dark]:from-[-25%] opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-b to-50% from-gray-800 from-[-25%] opacity-25" />
         )}
         {fade.includes("bottom") && (
-          <div className="absolute inset-0 bg-gradient-to-t from-white to-50% group-data-[dark]:from-gray-800 group-data-[dark]:from-[-25%] opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-t to-50% from-gray-800 from-[-25%] opacity-25" />
         )}
       </div>
       <div className="relative p-10  z-20 isolate mt-[-110px] h-[14rem] backdrop-blur-xl">
-        <h1>{eyebrow}</h1>
-        <p className="mt-1 text-2xl/8 font-medium tracking-tight dark:text-gray-100 text-gray-950 group-data-[dark]:text-white">
+        <h1 className="text-white">{eyebrow}</h1>
+        <p className="mt-1 text-2xl/8 font-medium tracking-tight dark:text-gray-100 text-white">
           {title}
         </p>
-        <p className="mt-2 max-w-[600px] text-sm/6 text-gray-600 dark:text-gray-300 group-data-[dark]:text-gray-400">
+        <p className="mt-2 max-w-[600px] text-sm/6 text-gray-300">
           {description}
         </p>
       </div>

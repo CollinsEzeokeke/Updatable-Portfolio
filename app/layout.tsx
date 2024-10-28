@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Particles from "@/components/ui/particles";
+import { ParticlesWrapper } from "@/components/ParticlesWrapper"; // Make sure this path is correct
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -21,20 +22,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
-        <Particles
-    className="fixed inset-0 -z-10"
-    quantity={100}
-    color="#FFFFFF"
-    size={0.4}
-  >{children}</Particles>
+        <ParticlesWrapper
+          className="absolute inset-0 -z-10"
+          quantity={100}
+          staticity={50}
+          ease={50}
+          color="#FFFFFF"
+        >
+          {children}
+        </ParticlesWrapper>
       </body>
     </html>
   );
