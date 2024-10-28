@@ -2,7 +2,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, forwardRef, MutableRefObject } from "react";
 import type { GlobeMethods } from 'react-globe.gl';
 
 const GlobeTmpl = dynamic(() => import("react-globe.gl"), { 
@@ -25,7 +25,10 @@ interface GlobeProps {
 }
 
 const Globe = forwardRef((props: GlobeProps, ref: ForwardedRef<GlobeMethods>) => {
-  return <GlobeTmpl {...props} ref={ref} />;
+  // Convert ForwardedRef to MutableRefObject
+  const mutableRef = ref as MutableRefObject<GlobeMethods | undefined>;
+  
+  return <GlobeTmpl {...props} ref={mutableRef} />;
 });
 
 Globe.displayName = "Globe";

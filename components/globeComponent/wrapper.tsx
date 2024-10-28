@@ -41,9 +41,12 @@ const WorldGlobe = ({ width = 800, height = 800 }: WorldGlobeProps) => {
       configureGlobe();
     }
 
+    // Store the current ref value
+    const currentGlobe = globeRef.current;
+
     return () => {
-      if (globeRef.current) {
-        const controls = globeRef.current.controls();
+      if (currentGlobe) {
+        const controls = currentGlobe.controls();
         if (controls) {
           controls.autoRotate = false;
         }
