@@ -22,6 +22,7 @@ interface GlobeProps {
   pointLabel?: string;
   pointRadius?: number;
   pointColor?: () => string;
+  enablePointerInteraction?: boolean;
 }
 
 const Globe = forwardRef((props: GlobeProps, ref: ForwardedRef<GlobeMethods>) => {
