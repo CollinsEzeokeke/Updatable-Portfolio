@@ -27,6 +27,7 @@
     "react-globe.gl": "^2.27.3",
     "react-spring": "^9.7.4",
     "sanity": "3",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
     "styled-components": "6",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"

@@ -6,6 +6,7 @@
 
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import {structureTool} from 'sanity/structure'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -22,6 +23,7 @@ export default defineConfig({
   plugins: [
     structureTool({structure}),
     // Vision is for querying with GROQ from inside the Studio
+    vercelDeployTool(),
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
