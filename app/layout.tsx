@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ParticlesWrapper } from "@/components/ParticlesWrapper"; // Make sure this path is correct
+import TanStackProvider from "@/Providers/TanStackProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,7 +38,7 @@ export default function RootLayout({
           ease={50}
           color="#FFFFFF"
         >
-          {children}
+          <TanStackProvider>{children}</TanStackProvider>
         </ParticlesWrapper>
       </body>
     </html>
