@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Loading from "@/app/loading";
+// import Loading from "@/app/loading";
 import { ReactNode } from "react";
 
 // Define the props interface including children
@@ -20,7 +20,8 @@ interface ParticlesWrapperProps {
 
 const DynamicParticles = dynamic(() => import("@/components/ui/particles"), {
   ssr: false,
-  loading: () => <Loading />,
+  // loading: () => <Loading />,
+  loading: () => <div>Loading....</div>,
 });
 
 // Use the interface in the component definition
