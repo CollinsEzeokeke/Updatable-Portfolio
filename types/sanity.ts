@@ -8,3 +8,11 @@ export interface HeaderDocument {
     bottomThree: string
     releaseDate: string
   }
+
+  export interface FeatureSectionTypes {
+
+  }
+
+  export interface FeatureSectionTwoTypes {
+    
+  }

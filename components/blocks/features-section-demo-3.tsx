@@ -13,31 +13,31 @@ import { BackgroundBeams } from "../ui/background-beams";
 export default function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Track issues effectively",
+      title: "Full-Stack Excellence",
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        "Mastering both frontend and backend development with modern frameworks and Web3 integration. Specialized in creating secure, scalable, and user-centric solutions.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r border-neutral-800",
     },
     {
-      title: "Capture pictures with AI",
+      title: "Innovation Portfolio",
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        "Explore my latest projects featuring decentralized applications, smart contract implementations, and modern web solutions.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 border-neutral-800",
     },
     {
-      title: "Watch our AI on YouTube",
+      title: "Smart Contract Development",
       description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+        "Architecting secure and efficient smart contracts with advanced features like: Account abstraction (ERC-4337) Cross-chain messaging protocols Gas-optimized contract deployment Automated testing and auditing",
       skeleton: <SkeletonThree />,
       className: "col-span-1 lg:col-span-3 lg:border-r border-neutral-800",
     },
     {
-      title: "Deploy in seconds",
+      title: "Global Tech Integration",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "Leveraging cutting-edge technologies across the global digital ecosystem: Cross-chain development with LayerZero Cloud-native architectures on AWS/GCP AI/ML integration for smart applications Zero-knowledge proof implementations Edge computing solutions",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -46,12 +46,11 @@ export default function FeaturesSectionDemo() {
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto text-white">
       <div className="px-8">
         <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium">
-          Packed with thousands of features
+        Engineering Excellence Across the Stack
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-center font-normal">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+        From responsive web applications to smart contract integration, I deliver end-to-end solutions that power the future of digital interaction. Specializing in both conventional and Web3 technologies to create impactful, scalable applications.
         </p>
       </div>
 
