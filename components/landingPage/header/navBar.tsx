@@ -62,13 +62,15 @@ export default function Navbar() {
 
           <div className="hidden md:flex space-x-4">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavigation(item.href)}
-                className="text-white hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out"
-              >
-                {item.name}
-              </button>
+              // <button
+              //   key={item.name}
+              //   onClick={() => handleNavigation(item.href)}
+              //   className="text-white hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out"
+              // >
+              //   {item.name}
+              // </button>
+              <li className="list-none" key={item.name}>
+              <Link href={item.href}>{item.name}</Link></li>
             ))}
           </div>
 

@@ -1,14 +1,38 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import createGlobe from "cobe";
+import createGlobe, { GlobeInstance, GlobeState} from 'cobe';
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { BackgroundBeams } from "../ui/background-beams";
+
+// Define proper types for the markers
+interface Marker {
+  location: [number, number];
+  size: number;
+}
+
+// Define proper types for the globe configuration
+interface GlobeConfig {
+  devicePixelRatio: number;
+  width: number;
+  height: number;
+  phi: number;
+  theta: number;
+  dark: number;
+  diffuse: number;
+  mapSamples: number;
+  mapBrightness: number;
+  baseColor: [number, number, number];
+  markerColor: [number, number, number];
+  glowColor: [number, number, number];
+  markers: Marker[];
+  onRender: (state: GlobeState) => void;
+}
 
 export default function FeaturesSectionDemo() {
   const features = [
@@ -240,13 +264,17 @@ export const Globe = ({ className }: { className?: string }) => {
   const phiRef = useRef(0);
 
   useEffect(() => {
-    let phi = 0;
-    let globeInstance: any;
+    const markers: Marker[] = [
+      { location: [37.7595, -122.4367], size: 0.03 },
+      { location: [40.7128, -74.006], size: 0.1 },
+    ];
+
+    let globeInstance: GlobeInstance | undefined;
 
     if (!canvasRef.current) return;
 
     try {
-      globeInstance = createGlobe(canvasRef.current, {
+      const globeConfig: GlobeConfig = {
         devicePixelRatio: 2,
         width: 600 * 2,
         height: 600 * 2,
@@ -259,16 +287,14 @@ export const Globe = ({ className }: { className?: string }) => {
         baseColor: [0.3, 0.3, 0.3],
         markerColor: [0.1, 0.8, 1],
         glowColor: [1, 1, 1],
-        markers: [
-          { location: [37.7595, -122.4367], size: 0.03 },
-          { location: [40.7128, -74.006], size: 0.1 },
-        ],
-        onRender: (state: any) => {
-          // This is required by the COBE library
+        markers,
+        onRender: (state: GlobeState) => {
           phiRef.current += 0.01;
           state.phi = phiRef.current;
         },
-      });
+      };
+
+      globeInstance = createGlobe(canvasRef.current, globeConfig);
     } catch (error) {
       console.error("Error creating globe:", error);
     }
