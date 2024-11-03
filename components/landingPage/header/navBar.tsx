@@ -70,7 +70,7 @@ export default function Navbar() {
               //   {item.name}
               // </button>
               <li className="list-none" key={item.name}>
-              <Link href={item.href}>{item.name}</Link></li>
+              <Link href={item.href} onClick={() => handleNavigation(item.href)}>{item.name}</Link></li>
             ))}
           </div>
 
