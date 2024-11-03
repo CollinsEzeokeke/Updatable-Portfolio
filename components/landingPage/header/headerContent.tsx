@@ -25,7 +25,11 @@ const ErrorFallback = ({ error }: { error: Error | unknown }) => {
             />
           </svg>
         </div>
+<<<<<<< Updated upstream
         <h2 className="text-3xl font-bold mb-4">Oops! Something&apos;s Not Right</h2>
+=======
+        <h2 className="text-3xl font-bold mb-4">Oops! Something's Not Right</h2>
+>>>>>>> Stashed changes
         <p className="text-gray-400 mb-6">
           {error instanceof Error ? error.message : 'We encountered an unexpected issue'}
         </p>
@@ -77,7 +81,11 @@ const EmptyState = () => {
         </svg>
         <h3 className="text-2xl font-bold mb-2">No Content Available</h3>
         <p className="text-gray-400">
+<<<<<<< Updated upstream
           We couldn&apos;t find any header content to display at the moment
+=======
+          We couldn't find any header content to display at the moment
+>>>>>>> Stashed changes
         </p>
       </div>
     </div>
