@@ -39,11 +39,7 @@ const WorldGlobe = ({ width = 200, height = 200 }: WorldGlobeProps) => {
       controls.maxPolarAngle = Math.PI / 2;
       controls.minAzimuthAngle = -Infinity; // Allow only horizontal rotation
       controls.maxAzimuthAngle = Infinity;
-<<<<<<< Updated upstream
       controls.enabled = false; // Disable all manual controls
-=======
-      controls.enabled = true; // Disable all manual controls
->>>>>>> Stashed changes
     }
   }, []);
 
