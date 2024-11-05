@@ -130,3 +130,27 @@ export const FeatureSectionTwo = defineType({
   }
 })
 
+export const AboutImage = defineType({
+  name: "Image",
+  type: "document",
+  title: "About Image",
+
+  fields: [
+    defineField({
+      name: 'Image',
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility.',
+          validation: rule => rule.required(),
+        }
+      ]
+    })
+  ]
+}) 

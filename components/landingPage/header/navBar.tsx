@@ -57,18 +57,11 @@ export default function Navbar() {
             className="flex items-center space-x-2"
           >
             <Globe className="h-8 w-8 text-indigo-600" />
-            <span className="font-bold text-xl text-white">John Doe</span>
+            <span className="font-bold text-xl text-white">Collins Ezeokeke</span>
           </button>
 
           <div className="hidden md:flex space-x-4">
             {navItems.map((item) => (
-              // <button
-              //   key={item.name}
-              //   onClick={() => handleNavigation(item.href)}
-              //   className="text-white hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out"
-              // >
-              //   {item.name}
-              // </button>
               <li className="list-none" key={item.name}>
               <Link href={item.href} onClick={() => handleNavigation(item.href)}>{item.name}</Link></li>
             ))}

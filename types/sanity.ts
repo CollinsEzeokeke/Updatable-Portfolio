@@ -16,3 +16,17 @@ export interface HeaderDocument {
   export interface FeatureSectionTwoTypes {
     
   }
+
+  export interface SanityImage {
+    _type: 'image';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+    alt: string;
+  }
+  
+  export interface AboutImageTypes {
+    _type: 'Image';
+  Image: SanityImage;
+  }

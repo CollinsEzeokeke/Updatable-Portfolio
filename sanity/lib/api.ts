@@ -1,6 +1,6 @@
 // lib/api.ts
 import { client } from './client'
-import { HeaderDocument } from '@/types/sanity'
+import { HeaderDocument, AboutImageTypes } from '@/types/sanity'
 
 export const getHeaders = async (): Promise<HeaderDocument[]> => {
   const query = `*[_type == "header"] {
@@ -16,7 +16,8 @@ export const getHeaders = async (): Promise<HeaderDocument[]> => {
   return client.fetch(query)
 }
 
-export const getHeaderById = async (id: string): Promise<HeaderDocument> => {
-  const query = `*[_type == "header" && _id == $id][0]`
-  return client.fetch(query, { id })
+
+export const getAboutImage = async () => {
+  const data = await client.fetch<AboutImageTypes>(`*[_type == "Image"][0]`)
+  return data
 }

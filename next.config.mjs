@@ -11,7 +11,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'assets.aceternity.com', // Also adding this since your code uses images from this domain
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
     ],
   },
 };
