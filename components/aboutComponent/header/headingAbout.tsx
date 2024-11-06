@@ -4,7 +4,8 @@ import {
   IconBrandGithub,
   IconBrandX,
   IconBrandFacebook,
-  IconBrandInstagram
+  IconBrandInstagram,
+  IconBrandWhatsapp
 } from "@tabler/icons-react";
 import WonderfulCard from "@/components/wonderfulCards";
 import "@/styles/resumeAnimation.css"
@@ -12,7 +13,7 @@ import ButtonBlock from "@/components/buttonedComponent";
 import { useAboutImage } from "@/hooks/useAboutImage";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { MarqueeDemoVertical } from "@/components/marqueeUse";
+import { MarqueeDemo } from "@/components/marqueeUse";
 
 
 // Loading Component
@@ -57,7 +58,7 @@ const EmptyState = () => {
 
 
 const TopAbout = () => {
-  const { data: imageData, isLoading, error} = useAboutImage()
+  const { data: imageData, isLoading } = useAboutImage()
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -72,7 +73,7 @@ const image = imageData
 console.log(image)
 
   return (
-    <div className="flex justify-around before:card-before items-center h-screen">
+    <div className="flex justify-around items-center h-screen w-screen overflow-x-hidden">
       <WonderfulCard>
         <div className="w-full h-full bg-[#171717] transition-all duration-1000 ease-in-out clip-path-polygon flex flex-col rounded-tr-[20px] rounded-bl-[20px] justify-around opacity-100">
           {/* Profile Image */}
@@ -112,7 +113,7 @@ console.log(image)
         </div>
       </WonderfulCard>
 
-      <MarqueeDemoVertical />
+      <MarqueeDemo />
     </div>
   );
 };
@@ -138,6 +139,11 @@ const socialLinks = [
     name: "github",
     href: "#",
     icon: <IconBrandFacebook />,
+  },
+  {
+    name: "whatsapp",
+    href: "wa.me+2348132500912",
+    icon: <IconBrandWhatsapp />,
   },
 ];
 

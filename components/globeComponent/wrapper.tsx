@@ -1,17 +1,16 @@
-// // components/WorldGlobe.tsx
 "use client";
-import React, { useRef, useEffect, useCallback } from "react";
-import Globe from "react-globe.gl";
+import React, { useRef, useEffect } from "react";
+import Globe, { GlobeMethods } from "react-globe.gl";
 
 interface WorldGlobeProps {
   width?: number;
   height?: number;
 }
 
-// Dynamically import the Globe component
 
 const WorldGlobe = ({ width = 200, height = 200 }: WorldGlobeProps) => {
-  const globeEl = useRef<any>();
+  // Use GlobeMethods type from react-globe.gl
+  const globeEl = useRef<GlobeMethods>();
 
   useEffect(() => {
     console.log("useEffect for globe controls");
@@ -28,16 +27,17 @@ const WorldGlobe = ({ width = 200, height = 200 }: WorldGlobeProps) => {
     } else {
       console.log("Globe is not defined");
     }
-  }, [globeEl.current]);
+  }, []); // Remove dependency array
+
   return (
     <div
       className="flex items-end absolute top-56"
       style={{ pointerEvents: "none" }}
     >
       <Globe
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg" // Use a more modern globe image
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-        ref={useCallback<any>(globeEl, [])}
+        ref={globeEl}
         width={width}
         height={height}
         backgroundColor="black"

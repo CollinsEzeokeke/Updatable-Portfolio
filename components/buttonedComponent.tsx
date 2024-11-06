@@ -9,15 +9,6 @@ interface ButtonBlockProps {
   className?: string;
 }
 
-const Flower = () => (
-  <div className="flower">
-    <div className="petal one"></div>
-    <div className="petal two"></div>
-    <div className="petal three"></div>
-    <div className="petal four"></div>
-  </div>
-);
-
 const ButtonBlock: React.FC<ButtonBlockProps> = ({ 
   text = "Download CV", 
   onClick,
