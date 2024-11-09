@@ -14,6 +14,7 @@ import { useAboutImage } from "@/hooks/useAboutImage";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { MarqueeDemo } from "@/components/marqueeUse";
+import { PinContainer } from "@/components/ui/3d-pin";
 
 
 // Loading Component
@@ -73,21 +74,21 @@ const image = imageData
 console.log(image)
 
   return (
-    <div className="flex justify-around items-center h-screen w-screen overflow-x-hidden">
+    <div className="flex justify-around items-center h-screen w-screen overflow-x-hidden overflow-y-hidden">
       <WonderfulCard>
         <div className="w-full h-full bg-[#171717] transition-all duration-1000 ease-in-out clip-path-polygon flex flex-col rounded-tr-[20px] rounded-bl-[20px] justify-around opacity-100">
           {/* Profile Image */}
-          <div className="w-40 h-40 bg-[#202020] rounded-[15px] mx-auto">
-          <Image src={urlFor(image.Image.asset._ref).url()} alt={image.Image.alt} width={200} height={200} className="rounded-full"/>
-          </div>
+          <PinContainer className="w-60 h-60  rounded-[15px] mx-auto" title="send me an email" href="mailto:collinsmecosy@gmail.com">
+          <Image src={urlFor(image.Image.asset._ref).url()} alt={image.Image.alt} width={300} height={300} className="rounded-full"/>
+          </PinContainer>
 
           {/* Title */}
-          <span className="font-bold text-white text-center text-base">
+          <span className="font-bold text-white text-center text-3xl">
             About Me
           </span>
 
           {/* Description */}
-          <p className="text-white text-center text-[0.72em] m-4 font-normal">
+          <p className="text-white text-center text-[0.72em] m-4 font-normal text-2xl">
             I am Collins Ezeokeke, a versatile full-stack developer specializing
             in modern web technologies and blockchain development. With my deep
             understanding of both front-end and back-end development, I craft

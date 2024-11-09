@@ -2,8 +2,8 @@
 .card {
     position: relative;
     color: white;
-    width: 24rem;
-    height: 66.666667%;
+    width: 40rem;
+    height: 80%;
     background-color: #cdcdcd83;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     inset: 0;
     left: -5px;
     margin: auto;
-    width: 24rem;
+    width: 40rem;
     height: 100%;
     border-radius: 10px;
     background: linear-gradient(-45deg, #300245 0%, #024f6e 100% );
@@ -33,6 +33,7 @@
     content: "";
     z-index: -1;
     position: absolute;
+    height: 50000px;
     inset: 0;
     background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
     transform: translate3d(0, 0, 0) scale(0.95);
@@ -41,7 +42,7 @@
   
   .heading {
     font-size: 20px;
-    text-transform: capitalize;
+    text-transform: capitalize; 
     font-weight: 700;
   }
   

@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black overflow-x-hidden text-white`}
       >
         <ParticlesWrapper
           className="absolute inset-0 -z-10"
