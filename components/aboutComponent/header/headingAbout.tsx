@@ -143,7 +143,7 @@ const socialLinks = [
   },
   {
     name: "whatsapp",
-    href: "wa.me+2348132500912",
+    href: "https://wa.me+2348132500912",
     icon: <IconBrandWhatsapp />,
   },
 ];
