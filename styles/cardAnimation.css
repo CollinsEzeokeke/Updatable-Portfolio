@@ -63,4 +63,8 @@
     transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
   }
   
-  
+  @media (max-width: 475px) {
+    .card::before{
+      display: none;
+    }
+}
