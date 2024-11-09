@@ -74,9 +74,9 @@ const image = imageData
 console.log(image)
 
   return (
-    <div className="flex justify-around items-center h-screen w-screen overflow-x-hidden overflow-y-hidden">
+    <div className="flex justify-around items-center h-screen w-screen overflow-x-hidden overflow-y-hidden mobile:h-screen mobile:w-screen">
       <WonderfulCard>
-        <div className="w-full h-full bg-[#171717] transition-all duration-1000 ease-in-out clip-path-polygon flex flex-col rounded-tr-[20px] rounded-bl-[20px] justify-around opacity-100">
+        <div className="w-full h-full bg-[#171717] transition-all duration-1000 ease-in-out clip-path-polygon flex flex-col rounded-tr-[20px] rounded-bl-[20px] justify-around opacity-100 mobile:overflow-y-scroll">
           {/* Profile Image */}
           <PinContainer className="w-60 h-60  rounded-[15px] mx-auto" title="send me an email" href="mailto:collinsmecosy@gmail.com">
           <Image src={urlFor(image.Image.asset._ref).url()} alt={image.Image.alt} width={300} height={300} className="rounded-full"/>
